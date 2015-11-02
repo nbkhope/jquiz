@@ -9,7 +9,7 @@ To run jQuiz, you will need a server with support for
 * MySQL
 
 ## Installation
-Create a database called "jquiz." Then, with that database active, perform the following commands:
+Create a database called "jquiz". Then, with that database active, perform the following commands:
 ```
 source questionbank.sql
 LOAD DATA LOCAL INFILE 'QuestionBank.csv' INTO TABLE questionbank;
@@ -33,4 +33,8 @@ define("DB_NAME", "jquiz");
 Modify the definitions to conform with your system settings.
 
 ## Adding More Questions
-Just go to **sql/** and modify the file **QuestionBank.csv**. You can open this with a spreadsheet software like Microsoft Excel or LibreOffice Calc. Make sure to maintain the settings that it is a CSV file using a TAB as the delimiter. Use **\N** for question items that are not used.
+Just go to **sql/** and modify the file **QuestionBank.csv**. You can open this with a spreadsheet software like Microsoft Excel or LibreOffice Calc. Make sure to maintain the settings that it is a CSV file using a TAB as the delimiter. Use **\N** for question items that are not used. After making changes to QuestionBank.csv, recreate the database table using the commands presented above in the Installation section.
+
+## Security
+The directory sql/ is just initially used to set up the database and should not be available to the public. Also be careful with db_auth.php, as its contents should not be publicly displayed.
+

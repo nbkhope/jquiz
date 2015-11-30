@@ -34,10 +34,10 @@ class QuestionBank {
 	 */
 	function __construct() {
 		session_start();
-		
-		if (isset($_SESSION['current_lesson']) && !empty($_SESSION['current_lesson'])) 
+
+		if (isset($_SESSION['current_lesson']) && !empty($_SESSION['current_lesson']))
 			$current_lesson = $_SESSION['current_lesson'];
-		
+
 	}
 
 	/**
@@ -70,7 +70,7 @@ class QuestionBank {
 
 			if (DEBUG_MODE)
 				var_dump($_SESSION['user_answers']);
-				
+
 		}
 	}
 
@@ -89,6 +89,12 @@ class QuestionBank {
 
 		if ($this->db_connection->connect_errno) {
 			echo "Failed to connect to MySQL: (" . $this->db_connection->connect_errno . ") " . $this->db_connection->connect_error;
+		}
+
+		// Sets the charset to UTF8
+		if (!$this->db_connection->set_charset("utf8")) {
+			printf("Error loading character set utf8: %s\n", $this->db_connection->error);
+			exit();
 		}
 
 		$result = $this->db_connection->query($sql);
@@ -207,25 +213,25 @@ class QuestionBank {
 
 			if (DEBUG_MODE)
 				echo "<span class='debug-mode-message'>" . $this->total_questions . " questions fetched for lesson " . $this->current_lesson . ".</span>";
-				
+
 		}
 		else {
 			echo "Your query did not work: (" . $this->db_connection->errno . ") " . $this->db_connection->error;
 		}
 	}
-	
+
 	/**
 	 * Fetches all questions from the session
 	 * It assumes the session variable is already set
 	 */
 	function fetchQuestionsForLessonUseSession() {
 		$this->questions = $_SESSION['questions'];
-		
+
 		if (DEBUG_MODE) {
 			//var_dump($this->questions);
 			var_dump($this->getQuestionsArrayByVal());
 		}
-		
+
 		foreach ($this->questions as $q)
 			$this->total_questions++;
 		//$this->total_questions = count($this->questions, COUNT_RECURSIVE);
@@ -385,7 +391,7 @@ class QuestionBank {
 			echo "<span class='.question-missing'>That question does not exist.</span>";
 		}
 	}
-	
+
 	/**
 	 * Assigns the array of questions to the given
 	 * argument, the session array of questions
@@ -393,7 +399,7 @@ class QuestionBank {
 	function setSessionQuestionsArray(&$session_array) {
 		$session_array = $this->questions;
 	}
-	
+
 	/**
 	 * Returns the array of questions
 	 */

@@ -1,9 +1,9 @@
 /**
  * Stylesheet for jQuiz
- * 
+ *
  * Author: Renan Martins
  */
- 
+
 /**
  * General HTML styles
  */
@@ -24,6 +24,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+.site-header,
+.site-menu,
+.site-content,
+.site-footer
+{
+	width: 90%;
+}
+
 
 /**
  * For the site header
@@ -32,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: AntiqueWhite;
 	text-align: center;
 	padding: 10px;
-	
+
 	border: 1px solid black;
 }
 .site-header .site-title {
@@ -47,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: AntiqueWhite;
 	text-align: center;
 	padding: 10px;
-	
+
 	border: 1px solid black;
 }
 .site-menu ul {
@@ -55,16 +63,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .site-menu li {
 	border-right: 1px solid black;
-		
+
 	margin-right: 0;
 	margin-left: 0;
-	
+
 	padding-right: 10px;
 	padding-left: 10px;
-	
-	display: inline-block;
-	
 
+	display: inline-block;
 }
 .site-menu li:last-child {
 	border-right: 0;
@@ -82,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: AntiqueWhite;
 	text-align: center;
 	padding: 10px;
-	
+
 	border: 1px solid black;
 }
 
@@ -90,10 +96,10 @@ h1, h2, h3, h4, h5, h6 {
 .question-area {
 	margin: 0 auto;
 	padding: 25px;
-	
+
 	border-radius: 12px;
 	border: 2px solid black;
-	
+
 	display: inline-block;
 }
 .question-prompt {
@@ -108,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 .question-item {
 	margin: 15px;
 	padding: 0;
-	
+
 	display: block;
 	cursor: pointer;
 }
@@ -129,30 +135,30 @@ h1, h2, h3, h4, h5, h6 {
 .response-message {
 	background-color:Cornsilk;
 	text-align: center;
-	
+
 	/*margin: 0 auto;*/
 	padding: 12px;
-	
+
 	border-radius: 12px;
 	border: 1px solid black;
-	
+
 	display: inline-block;
 	float: left;
 }
 
 .continue-button {
 	background-color: Gainsboro;
-	
+
 	padding: 12px;
-	
+
 	border-radius: 6px;
-	border: 1px solid black; 
+	border: 1px solid black;
 	box-shadow: 5px 5px 5px #888888;
-	
+
 	display: inline-block;
-	
+
 	cursor: pointer;
-	
+
 	float: right;
 }
 .continue-button a {
@@ -161,14 +167,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .results-panel {
 	background-color: Azure;
-	
+
 	margin-top: 25px;
 	padding: 12px;
-	
+
 	border-radius: 12px;
 	border: 1px solid black;
 	box-shadow: 8px 8px 8px #888888;
-	
+
 	display: inline-block;
 	clear:both;
 }
@@ -180,8 +186,9 @@ h1, h2, h3, h4, h5, h6 {
 .site-footer {
 	background-color: AntiqueWhite;
 	text-align: center;
+
 	padding: 10px;
-	
+
 	border: 1px solid black;
 }
 .site-footer .site-copyright {
@@ -196,12 +203,17 @@ h1, h2, h3, h4, h5, h6 {
 	color: green;
 	text-align: center;
 	width: 50%;
-	
+
 	margin: 0 auto;
 	margin-top: 12px;
 	margin-bottom: 12px;
 	padding: 6px;
-	
+
 	border: 3px solid Violet;
 	display: block;
+}
+
+
+.site-wrapper {
+  width: 0 auto;
 }

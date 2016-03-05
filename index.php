@@ -41,6 +41,8 @@ $qbank->init();
 
 ?>
 
+<div class="site-wrapper">
+
 <header class="site-header">
 	<span class="site-title"><?php echo SITE_TITLE; ?></span>
 </header>	
@@ -122,5 +124,6 @@ else {
 	<span class="site-copyright">Copyright © 2015 <a href="mailto:ryumemaru@yahoo.com?subject=jQuizWeb">Renan Martins</a></span>
 </footer>
 
+</div><!-- .site-wrapper -->
 </body>
 </html>

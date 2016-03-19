@@ -45,23 +45,24 @@ $qbank->init();
 <div class="site-wrapper">
 
 <header class="site-header">
-	<span class="site-title"><?php echo SITE_TITLE; ?></span>
+	<div id="site-title"><?php echo SITE_TITLE; ?></div>
+
+	<nav class="site-menu">
+		<ul>
+			<li><a href="index.php">Home</a></li>
+			<?php if (isset($_GET['lesson'])) { ?>
+			<li><span id="lesson-menu" style="cursor:pointer;">Lessons</span></li>
+			<?php } ?>
+			<li><a href="index.php?reset">Reset</a></li>
+		</ul>
+		<div class="lesson-menu">
+		<?php $qbank->getLessons(); ?>
+		</div>
+	</nav>
 </header>
 
-<nav class="site-menu">
-	<ul>
-		<li><a href="index.php">Home</a></li>
-		<?php if (isset($_GET['lesson'])) { ?>
-		<li><span id="lesson-menu" style="cursor:pointer;">Lessons</span></li>
-		<?php } ?>
-		<li><a href="index.php?reset">Reset</a></li>
-	</ul>
-	<div class="lesson-menu">
-	<?php $qbank->getLessons(); ?>
-	</div>
-</nav>
-
-<section class="site-content">
+<main class="site-content">
+<section>
 
 <?php
 
@@ -120,9 +121,10 @@ else {
 ?>
 
 </section>
+</main>
 
 <footer class="site-footer">
-	<span class="site-copyright">Copyright © 2015 <a href="mailto:ryumemaru@yahoo.com?subject=jQuizWeb">Renan Martins</a></span>
+	<span id="site-copyright">Copyright © 2015 <a href="mailto:ryumemaru@yahoo.com?subject=jQuizWeb">Renan Martins</a></span>
 </footer>
 
 </div><!-- .site-wrapper -->

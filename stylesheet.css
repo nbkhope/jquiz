@@ -217,25 +217,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-wrapper {
   margin: 0 auto;
-  width: 90%
+  padding: 0 15px 0;
 }
+
+/* Media Queries
+   for Responsive Design */
 
 /* Smartphones */
 @media (max-width: 767px) {
-
+  .site-wrapper {
+    width: auto;
+  }
 }
 
 /* Tablets */
 @media (min-width: 768px) {
-
+  .site-wrapper {
+    width: 750px;
+  }
 }
 
 /* Desktops */
 @media (min-width: 992px) {
-
+  .site-wrapper {
+    width: 970px;
+  }
 }
 
 /* Large Desktops */
 @media (min-width: 1200px) {
-
+  .site-wrapper {
+    width: 1170px;
+  }
 }

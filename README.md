@@ -81,5 +81,5 @@ If your database has encoding other than utf8 (like latin1), use the following
 command to alter its default character set:
 
 ```
-ALTER SCHEMA `jquiz` DEFAULT CHARACTER SET utf8;
+mysql> ALTER SCHEMA `jquiz` DEFAULT CHARACTER SET utf8;
 ```

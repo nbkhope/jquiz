@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="robots" content="index, nofollow">
 	<meta name="description" content="Practice for the JLPT by taking a quiz">
 	<meta name="keywords" content="JLPT, test, Japanese, language, practice, Japan">
 	<meta name="author" content="Renan Martins">
-	
+
 	<title>jQuiz</title>
-	
+
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
+
 	<script>
 	$(document).ready(function() {
 		$("#lesson-menu").click(function() {
@@ -23,7 +24,7 @@
 	</script>
 </head>
 <body>
-	
+
 <?php
 
 require_once("settings.php");
@@ -45,7 +46,7 @@ $qbank->init();
 
 <header class="site-header">
 	<span class="site-title"><?php echo SITE_TITLE; ?></span>
-</header>	
+</header>
 
 <nav class="site-menu">
 	<ul>
@@ -72,12 +73,12 @@ if (isset($_GET['lesson']) && !empty($_GET['lesson'])) {
 	// from the database
 	if (isset($_SESSION['questions']) && !empty($_SESSION['questions'])) {
 		if ($_GET['lesson'] !== $_SESSION['current_lesson']) {
-			
+
 			$qbank->current_lesson = $_GET['lesson'];
 			$_SESSION['current_lesson'] = $qbank->current_lesson;
-			
+
 			$qbank->fetchQuestionsForLesson();
-			
+
 			$qbank->setSessionQuestionsArray($_SESSION['questions']);
 		}
 		else {
@@ -87,16 +88,16 @@ if (isset($_GET['lesson']) && !empty($_GET['lesson'])) {
 	else {
 		$qbank->current_lesson = $_GET['lesson'];
 		$_SESSION['current_lesson'] = $qbank->current_lesson;
-		
+
 		$qbank->fetchQuestionsForLesson();
-		
+
 		$qbank->setSessionQuestionsArray($_SESSION['questions']);
 	}
 
 	echo "<h1>Lesson " . $qbank->current_lesson . "</h1>";
 
 	echo '<div class="question-area">';
-	
+
 	if (!isset($_GET['q'])) {
 		$q = 0;
 	}
@@ -108,7 +109,7 @@ if (isset($_GET['lesson']) && !empty($_GET['lesson'])) {
 	}
 
 	$qbank->getQuestion($q);
-	
+
 	echo '</div><!-- .question-area -->';
 }
 else {

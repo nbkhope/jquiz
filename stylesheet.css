@@ -42,6 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 10px;
 
 	border: 1px solid black;
+  border-radius: 6px 6px 0 0;
 }
 .site-header .site-title {
 	font-size: xx-large;
@@ -215,5 +216,5 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .site-wrapper {
-  width: 0 auto;
+  margin: 0 auto;
 }

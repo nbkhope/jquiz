@@ -289,6 +289,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 1% 0;
     width: auto;
   }
+  .question-prompt {
+    text-align: left;
+  }
+  .question-item {
+    margin-left: 0;
+  }
   .site-footer {
     background-color:	#d7e6fa;
     border-bottom: 1px solid black;

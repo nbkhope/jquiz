@@ -110,6 +110,8 @@ h1, h2, h3, h4, h5, h6 {
 	border: 2px solid black;
 
 	display: block;
+	position: relative;
+	overflow: auto;
 }
 .question-prompt {
 	color: DarkBlue;
@@ -281,12 +283,14 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
   }
   .site-content {
+		padding-left: 0;
+		padding-right: 0;
     border-bottom: 1px solid black;
   }
   .question-area {
     border: initial;
     border-radius: initial;
-    padding: 0 1% 0;
+    padding: 0 2% 0;
     width: auto;
   }
   .question-prompt {
@@ -295,6 +299,25 @@ h1, h2, h3, h4, h5, h6 {
   .question-item {
     margin-left: 0;
   }
+	.response-message,
+	.continue-button {
+		background-color: inherit;
+		border: initial;
+		border-radius: initial;
+		display: block;
+		float: none;
+		text-align: center;
+	}
+	.continue-button {
+		box-shadow: none;
+	}
+	.results-panel {
+		border: 2px solid black;
+		display: block;
+		float: none;
+		box-shadow: none;
+		text-align: center
+	}
   .site-footer {
     background-color:	#d7e6fa;
     border-bottom: 1px solid black;

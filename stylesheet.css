@@ -8,9 +8,10 @@
  * General HTML styles
  */
 html, body {
-	/*font-family: Georgia, Verdana, serif, Times;*/
-	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-	font-size: large;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1em;
+  margin: 0;
+  padding: 0;
 }
 table {
 	background-color: Moccasin;
@@ -29,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 .site-content,
 .site-footer
 {
-	width: 90%;
+  margin: 0;
 }
 
 
@@ -37,14 +38,18 @@ h1, h2, h3, h4, h5, h6 {
  * For the site header
  */
 .site-header {
-	background-color: AntiqueWhite;
+  background-color: #645e56;
+  color: #fdf7ef;
 	text-align: center;
-	padding: 10px;
+	padding: 0;
 
-	border: 1px solid black;
+	border: 2px solid black;
+  border-radius: 6px 6px 0 0;
 }
-.site-header .site-title {
-	font-size: xx-large;
+#site-title {
+	font-size: 2em;
+  padding: 12px;
+  border-bottom: 2px solid black;
 }
 
 
@@ -52,14 +57,16 @@ h1, h2, h3, h4, h5, h6 {
  * For the site menu
  */
 .site-menu {
-	background-color: AntiqueWhite;
+  background-color: #c8bcac;
+  color: #191715;
 	text-align: center;
-	padding: 10px;
-
-	border: 1px solid black;
+  padding: 15px;
+  margin: 0;
 }
 .site-menu ul {
 	list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .site-menu li {
 	border-right: 1px solid black;
@@ -73,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 	display: inline-block;
 }
 .site-menu li:last-child {
-	border-right: 0;
+	border-right: initial;
 }
 
 .lesson-menu {
@@ -89,26 +96,28 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 	padding: 10px;
 
-	border: 1px solid black;
+	border: 2px solid black;
+  border-top: 0px;
 }
 
 /* For the question area */
 .question-area {
 	margin: 0 auto;
 	padding: 25px;
+  width: 70%;
 
 	border-radius: 12px;
 	border: 2px solid black;
 
-	display: inline-block;
+	display: block;
 }
 .question-prompt {
 	color: DarkBlue;
-	font-size: x-large;
+	font-size: 1.25em;
 	display: block;
 }
 .question-choices {
-	font-size: large;
+	font-size: 1em;
 	text-align: left;
 }
 .question-item {
@@ -184,15 +193,16 @@ h1, h2, h3, h4, h5, h6 {
  * For the site footer
  */
 .site-footer {
-	background-color: AntiqueWhite;
+  background-color:	#d7e6fa;
 	text-align: center;
 
-	padding: 10px;
+	padding: 2%;
 
-	border: 1px solid black;
+	border: 2px solid black;
+  border-top: 0px;
 }
-.site-footer .site-copyright {
-	font-size: small;
+#site-copyright {
+	font-size: 0.8em;
 }
 
 
@@ -215,5 +225,99 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .site-wrapper {
-  width: 0 auto;
+  margin: 0 auto;
+  padding: 0 15px 0;
+}
+
+/* Media Queries
+   for Responsive Design */
+
+/* Smartphones */
+@media (max-width: 767px) {
+  .site-wrapper {
+    width: auto;
+    padding: 0;
+  }
+  .site-header,
+  .site-content,
+  .site-footer {
+    border: initial;
+  }
+  .site-header {
+    background-color: #645e56;
+    color: #fdf7ef;
+    border-radius: initial;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid black;
+  }
+  #site-title {
+    border-bottom: 1px solid black;
+  }
+  .site-menu {
+    background-color: #c8bcac;
+    color: #191715;
+    padding: 0;
+  }
+  .site-menu ul {
+  }
+  .site-menu li {
+    display: block;
+    margin: 0;
+    border: initial;
+    padding: 12px;
+  }
+  .site-menu li:last-child {
+  	border-right: initial;
+  }
+  .site-menu li:hover {
+    background-color: #d7e6fa;
+  }
+  .site-menu a:link,
+  .site-menu a:visited,
+  .site-menu a:active,
+  .site-menu a:hover {
+    text-decoration: none;
+  }
+  .site-content {
+    border-bottom: 1px solid black;
+  }
+  .question-area {
+    border: initial;
+    border-radius: initial;
+    padding: 0 1% 0;
+    width: auto;
+  }
+  .question-prompt {
+    text-align: left;
+  }
+  .question-item {
+    margin-left: 0;
+  }
+  .site-footer {
+    background-color:	#d7e6fa;
+    border-bottom: 1px solid black;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .site-wrapper {
+    width: 750px;
+  }
+}
+
+/* Desktops */
+@media (min-width: 992px) {
+  .site-wrapper {
+    width: 970px;
+  }
+}
+
+/* Large Desktops */
+@media (min-width: 1200px) {
+  .site-wrapper {
+    width: 1170px;
+  }
 }

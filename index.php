@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="robots" content="index, nofollow">
 	<meta name="description" content="Practice for the JLPT by taking a quiz">
 	<meta name="keywords" content="JLPT, test, Japanese, language, practice, Japan">
 	<meta name="author" content="Renan Martins">
-	
+
 	<title>jQuiz</title>
-	
+
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
+
 	<script>
 	$(document).ready(function() {
 		$("#lesson-menu").click(function() {
@@ -23,7 +24,7 @@
 	</script>
 </head>
 <body>
-	
+
 <?php
 
 require_once("settings.php");
@@ -44,23 +45,24 @@ $qbank->init();
 <div class="site-wrapper">
 
 <header class="site-header">
-	<span class="site-title"><?php echo SITE_TITLE; ?></span>
-</header>	
+	<div id="site-title"><?php echo SITE_TITLE; ?></div>
 
-<nav class="site-menu">
-	<ul>
-		<li><a href="index.php">Home</a></li>
-		<?php if (isset($_GET['lesson'])) { ?>
-		<li><span id="lesson-menu" style="cursor:pointer;">Lessons</span></li>
-		<?php } ?>
-		<li><a href="index.php?reset">Reset</a></li>
-	</ul>
-	<div class="lesson-menu">
-	<?php $qbank->getLessons(); ?>
-	</div>
-</nav>
+	<nav class="site-menu">
+		<ul>
+			<li><a href="index.php">Home</a></li>
+			<?php if (isset($_GET['lesson'])) { ?>
+			<li><span id="lesson-menu" style="cursor:pointer;">Lessons</span></li>
+			<?php } ?>
+			<li><a href="index.php?reset">Reset</a></li>
+		</ul>
+		<div class="lesson-menu">
+		<?php $qbank->getLessons(); ?>
+		</div>
+	</nav>
+</header>
 
-<section class="site-content">
+<main class="site-content">
+<section>
 
 <?php
 
@@ -72,12 +74,12 @@ if (isset($_GET['lesson']) && !empty($_GET['lesson'])) {
 	// from the database
 	if (isset($_SESSION['questions']) && !empty($_SESSION['questions'])) {
 		if ($_GET['lesson'] !== $_SESSION['current_lesson']) {
-			
+
 			$qbank->current_lesson = $_GET['lesson'];
 			$_SESSION['current_lesson'] = $qbank->current_lesson;
-			
+
 			$qbank->fetchQuestionsForLesson();
-			
+
 			$qbank->setSessionQuestionsArray($_SESSION['questions']);
 		}
 		else {
@@ -87,16 +89,16 @@ if (isset($_GET['lesson']) && !empty($_GET['lesson'])) {
 	else {
 		$qbank->current_lesson = $_GET['lesson'];
 		$_SESSION['current_lesson'] = $qbank->current_lesson;
-		
+
 		$qbank->fetchQuestionsForLesson();
-		
+
 		$qbank->setSessionQuestionsArray($_SESSION['questions']);
 	}
 
 	echo "<h1>Lesson " . $qbank->current_lesson . "</h1>";
 
 	echo '<div class="question-area">';
-	
+
 	if (!isset($_GET['q'])) {
 		$q = 0;
 	}
@@ -108,7 +110,7 @@ if (isset($_GET['lesson']) && !empty($_GET['lesson'])) {
 	}
 
 	$qbank->getQuestion($q);
-	
+
 	echo '</div><!-- .question-area -->';
 }
 else {
@@ -119,9 +121,10 @@ else {
 ?>
 
 </section>
+</main>
 
 <footer class="site-footer">
-	<span class="site-copyright">Copyright © 2015 <a href="mailto:ryumemaru@yahoo.com?subject=jQuizWeb">Renan Martins</a></span>
+	<span id="site-copyright">Copyright © 2015 <a href="mailto:ryumemaru@yahoo.com?subject=jQuizWeb">Renan Martins</a></span>
 </footer>
 
 </div><!-- .site-wrapper -->

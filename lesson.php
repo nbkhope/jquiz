@@ -7,10 +7,10 @@ class Lesson {
 	private $questions;
 
 	/* Constructor */
-	function __construct($id, $number) {
+	function __construct($id, $number, $questions = array()) {
 		$this->id = $id;
 		$this->number = $number;
-		$this->questions = array();
+		$this->questions = $questions;
 	}
 
 	/* Getter Methods */
@@ -25,9 +25,25 @@ class Lesson {
 	function getQuestions() {
 		return $this->questions;
 	}
+
+	function getQuestion($index) {
+		if ($index < countQuestions())
+			return $this->questions[$index];
+		//else
+			// invalid index
+	}
+
+	function countQuestions() {
+		return count($this->questions);
+	}
+
+	function addQuestion($question) {
+		# Pushes a question into the questions array
+		$this->questions[] = $question;
+	}
 }
 
-$lesson = new Lesson(1, 25);
-echo "Lesson " . $lesson->getNumber() . " (id: " . $lesson->getId() . ")";
+// $lesson = new Lesson(1, 25);
+// echo "Lesson " . $lesson->getNumber() . " (id: " . $lesson->getId() . ")";
 
 ?>

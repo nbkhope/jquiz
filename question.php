@@ -7,10 +7,10 @@ class Question {
 	private $responses;
 
 	/* Constructor */
-	function __construct($id, $prompt) {
+	function __construct($id, $prompt, $responses = array()) {
 		$this->id = $id;
 		$this->prompt = $prompt;
-		$this->responses = array();
+		$this->responses = $responses;
 	}
 
 	/* Getter Methods */
@@ -25,9 +25,25 @@ class Question {
 	function getResponses() {
 		return $this->responses;
 	}
+
+	function countResponses() {
+		return count($this->responses);
+	}
+
+	function getAnswer() {
+		foreach($this->responses as $response) {
+			if ($response->isRightChoice())
+				return $response->getDescription();
+		}
+		return null;
+	}
+
+	function addResponse($response) {
+		$this->responses[] = $response;
+	}
 }
 
-$question = new Question(1, "What is 'where' in Japanese?");
-echo "Question: " . $question->getPrompt() . " (id: " . $question->getId() . ")";
+// $question = new Question(1, "What is 'where' in Japanese?");
+// echo "Question: " . $question->getPrompt() . " (id: " . $question->getId() . ")";
 
 ?>

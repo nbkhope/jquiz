@@ -108,13 +108,14 @@ class QuestionBank {
 	 * Fetches all the lessons available in the database
 	 */
 	function fetchLessons() {
-		$sql = "SELECT DISTINCT lesson FROM questionbank ORDER BY lesson;";
+		$sql = "SELECT number FROM lessons ORDER BY number;";
 
 		$result = $this->query($sql);
 
 		if ($result) {
 			while ($lesson = $result->fetch_array(MYSQLI_ASSOC)) {
-				$this->lessons[] = $lesson["lesson"];
+				// Add current row information to the lessons array
+				$this->lessons[] = $lesson["number"];
 			}
 
 			if (DEBUG_MODE) {

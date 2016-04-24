@@ -148,7 +148,7 @@ class QuestionBank {
 	}
 
 	function countQuestions($lesson) {
-		$sql = "SELECT COUNT(lesson) AS numberOfQuestions FROM questionbank WHERE lesson = $lesson;";
+		$sql = "SELECT COUNT(number) AS numberOfQuestions FROM lessons INNER JOIN questions ON lessons.id = questions.lesson_id WHERE number = $lesson";
 
 		$result = $this->query($sql);
 

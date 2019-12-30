@@ -6,7 +6,7 @@
 	<meta name="robots" content="index, nofollow">
 	<meta name="description" content="Practice for the JLPT by taking a quiz">
 	<meta name="keywords" content="JLPT, test, Japanese, language, practice, Japan">
-	<meta name="author" content="Renan Martins">
+	<meta name="author" content="nbkhope">
 
 	<title>jQuiz</title>
 
@@ -124,7 +124,7 @@ else {
 </main>
 
 <footer class="site-footer">
-	<span id="site-copyright">Copyright © 2015 <a href="mailto:ryumemaru@yahoo.com?subject=jQuizWeb">Renan Martins</a></span>
+	<span id="site-copyright">Copyright © 2015 nbkhope</span>
 </footer>
 
 </div><!-- .site-wrapper -->

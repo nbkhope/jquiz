@@ -2,7 +2,7 @@
 /**
  * jQuiz main class
  *
- * Author: Renan Martins
+ * Author: nbkhope
  */
 
 /**
